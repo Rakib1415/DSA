@@ -16,3 +16,44 @@ const findNemo = (nemos) => {   //TC: O(n)
         }
     }
 }
+
+findNemo(nemos);
+
+const printFirstElement = (array) => { // TC : O(1)
+    console.log(array[0]);
+};
+
+const nums = new Array(100).fill(12);
+printFirstElement(nums);
+
+// which code is best code?
+// There are three pilars.
+// -- Readable
+// -- Space complexity (Memory)
+// -- Time complexity (Time)
+
+// Space complexity
+// what cause space complexity?
+// -- variables
+// -- data structure
+// -- function calls
+// -- allocations
+
+function foo(n){  // SC : O(1) and TC : O(n)
+    for(let i = 0; i < n.length; i++){
+        console.log('Foo!');
+    }
+};
+
+foo([1,2,3,4,5]);
+
+function arrayOfHiNTimes(n){  // SC : O(n) and TC : O(n)
+    let hiArray = [];
+    for(let i = 0; i < n; i++){
+        hiArray[i] = 'hi';
+    }
+    return hiArray;
+};
+
+const hiArray = arrayOfHiNTimes(4);
+console.log(hiArray);
