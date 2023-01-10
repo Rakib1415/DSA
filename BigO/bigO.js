@@ -57,3 +57,9 @@ function arrayOfHiNTimes(n){  // SC : O(n) and TC : O(n)
 
 const hiArray = arrayOfHiNTimes(4);
 console.log(hiArray);
+
+//What are company looking for ?
+// -- Analytic skills
+// -- coding skills
+// -- technical skills
+// -- communication skills
