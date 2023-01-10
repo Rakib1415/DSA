@@ -59,7 +59,24 @@ const hiArray = arrayOfHiNTimes(4);
 console.log(hiArray);
 
 //What are company looking for ?
+// there are four skills
 // -- Analytic skills
 // -- coding skills
 // -- technical skills
 // -- communication skills
+
+// Data structures
+// 1. Arrays
+// 2. Stacks
+// 3. Queues
+// 4. Linked Lists
+// 5. Trees
+// 6. Tries
+// 7. Graphs 
+// 8. Hash Tables 
+
+// Algorithms
+// 1. Sorting
+// 2. Dynamic Programmings
+// 3. BFS + DFS (Searching)
+// 4. Recursion
