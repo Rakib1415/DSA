@@ -80,3 +80,76 @@ console.log(hiArray);
 // 2. Dynamic Programmings
 // 3. BFS + DFS (Searching)
 // 4. Recursion
+
+
+
+// const containCommonItem = (arr1, arr2) => { //TC: O(a * b) SC : O(1)
+//    for(let i = 0; i < arr1.length; i++){
+//     for(let j = 0; j < arr2.length; j++){
+//         if(arr1[i] === arr2[j]){
+//             return true;
+//         }
+//     }
+//    }
+//    return false;
+// }
+
+// step 1 : first array convert to object that likes obj {
+    // a : true,
+    // b : true
+// }
+// step 2 : then check the item is contain second array item = obj.property
+// step 3 : return true or false
+
+
+function containCommonItem2(arr1, arr2){ // TC : O(a + b) SC: O(a)
+    const map = {};
+    for(let i = 0; i < arr1.length; i++){
+        if(!map[arr1[i]]){
+            map[arr1[i]] = true;
+        }
+    }
+    for(let j = 0; j < arr2.length; j++){
+        if(map[arr2[j]]){
+            return true;
+        }
+    }
+    return false;
+}
+
+const array1 = ['a', 'b', 'c', 'x'];
+const array2 = ['z', 't', 'y'];
+
+// more readable and language specific better in javascript
+function containCommonItem3(arr1, arr2){
+    return arr1.some(item => arr2.includes(item))
+}
+
+console.log(containCommonItem2(array1, array2));
+
+
+function hasPairWithSum(arr, sum){ // TC : O(n^2) SC : O(1)
+    for(let i = 0; i < arr.length - 1; i++){
+        for(let j = i + 1; j < arr.length ; j++){
+            if(arr[i] + arr[j] === sum){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+console.log(hasPairWithSum([1,2,3,4,5], 4))
+
+function hasPairWithSum1(arr, sum){  // TC : O(n) SC : O(n)
+    const mySet = new Set();
+    for(let i = 0; i < arr.length; i++){
+        if(mySet.has(arr[i])){
+            return true;
+        }
+        mySet.add(sum - arr[i]);
+    };
+    return false;
+}
+console.log(hasPairWithSum1([1,2,3,4,5], 4))
+
