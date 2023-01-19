@@ -20,8 +20,9 @@ class Stack {
             this.length++;
             return;
         }
-        this.top.next = newNode;
+        const holdingPointer = this.top;
         this.top = newNode;
+        this.top.next = holdingPointer;
         this.length++;
     }
     peek(){ // TC : O(1)
@@ -29,29 +30,20 @@ class Stack {
             console.log("Stack is empty!");
             return;
         }
-        return this.top.value;
+        return this.top;
     }
-    pop(){ // TC : O(n)
-        if(this.length <= 0){
-            console.log("Stack is empty!");
-            return;
-        }else if(this.length === 1){
-            this.top = null;
+    pop(){ // TC : O(1)
+        if(!this.top){
+            return null;
+        }
+        if(this.top === this.bottom){
             this.bottom = null;
-            this.length--;
-            return;
-        }else{
-            let currentNode = this.bottom;
-            while(currentNode.next.next !== null){
-            currentNode = currentNode.next;
         }
-            currentNode.next = null;
-            this.top = currentNode;
-            this.length--;
-        }
+        this.top = this.top.next;
+        this.length--;
     }
     isEmpty(){ // TC : O(1)
-        if(this.length === 0){
+        if(this.top === null && this.bottom === null){
             return true;
         }
         return false;
@@ -62,7 +54,6 @@ const myStack = new Stack();
 myStack.push(10);
 myStack.push(5);
 myStack.push(100);
-myStack.pop();
 myStack.pop();
 myStack.pop();
 console.log(myStack.peek());
