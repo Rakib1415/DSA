@@ -1,4 +1,5 @@
 
+// stack linked list implementation
 class Node {
     constructor(value){
         this.value = value;
@@ -58,3 +59,29 @@ myStack.pop();
 myStack.pop();
 console.log(myStack.peek());
 console.log(myStack.isEmpty());
+
+// stack array implementation
+
+class Stack {
+    constructor(){
+        this.array = [];
+    }
+    peek(){
+        return this.array[this.array.length - 1];
+    }
+    push(value){
+        this.array.push(value);
+    }
+    pop(){
+        this.array.pop();
+        return this;
+    }
+}
+
+const myStack1 = new Stack();
+myStack1.push(12);
+myStack1.push(10);
+myStack1.push(3);
+myStack1.pop();
+myStack1.pop();
+console.log(myStack.peek());
